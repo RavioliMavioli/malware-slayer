@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmg8mj0d6j1im"]
+
+[ext_resource type="Script" path="res://shaders/shockwave/shockwave.gd" id="1_serch"]
+[ext_resource type="Shader" path="res://shaders/shockwave/shockwave.gdshader" id="2_5j5ug"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lugxm"]
+resource_local_to_scene = true
+shader = ExtResource("2_5j5ug")
+shader_parameter/preview_atlas = true
+shader_parameter/position = Vector2(512, 512)
+shader_parameter/size = 0.2
+shader_parameter/feather = 0.15
+shader_parameter/gap = 0.0
+shader_parameter/force = 0.15
+shader_parameter/chromatic_abberation = true
+shader_parameter/chromatic_offset = 0.4
+
+[node name="Shockwave" type="BackBufferCopy"]
+rect = Rect2(0, 0, 1024, 1024)
+script = ExtResource("1_serch")
+lifespan = 8.0
+speed = 10.0
+initial_size = 0.15
+
+[node name="Shockwave" type="ColorRect" parent="."]
+light_mask = 0
+material = SubResource("ShaderMaterial_lugxm")
+offset_right = 1024.0
+offset_bottom = 1024.0
